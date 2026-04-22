@@ -1,0 +1,247 @@
+/* TOÀN BỘ FILE STYLE.CSS HOÀN CHỈNH */
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Be Vietnam Pro', sans-serif; 
+}
+
+body { 
+    background: #020617; 
+    color: white; 
+    overflow-x: hidden; 
+}
+
+/* Canvas nền cho pháo hoa */
+#fireworks { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+/* Thanh Menu */
+header {
+    padding: 20px 5%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    position: sticky; 
+    top: 0; 
+    z-index: 100;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.logo { 
+    font-size: 1.8rem; 
+    font-weight: 800; 
+    color: #38bdf8; 
+}
+
+.logo span { color: #f8fafc; }
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 25px; }
+nav ul li a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 500; 
+    transition: 0.3s; 
+}
+nav ul li a:hover { color: #38bdf8; }
+
+/* PHẦN HERO CÓ ẢNH NỀN LỚP - ĐÃ CHỈNH SỬA */
+.hero {
+    height: 100vh;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center; 
+    /* Thay 'image3.jpg' bằng tên file ảnh thật của em */
+    background: linear-gradient(rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 0.7)), 
+                url('image3.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Hiệu ứng cuộn Parallax */
+}
+
+.badge { 
+    background: #38bdf8; 
+    color: #020617; 
+    padding: 6px 18px; 
+    border-radius: 20px; 
+    font-weight: bold; 
+    font-size: 0.85rem; 
+    text-transform: uppercase;
+}
+
+h1 { 
+    font-size: 4.5rem; 
+    margin: 25px 0; 
+    letter-spacing: -2px; 
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Đồng hồ đếm ngược */
+#countdown { 
+    display: flex; 
+    gap: 20px; 
+    margin-top: 40px; 
+    justify-content: center; 
+}
+
+.time-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px; 
+    border-radius: 15px; 
+    min-width: 110px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.time-box span { 
+    font-size: 2.8rem; 
+    font-weight: 800; 
+    color: #38bdf8; 
+    display: block; 
+}
+
+.time-box p { 
+    font-size: 0.8rem; 
+    color: #cbd5e1; 
+    text-transform: uppercase; 
+}
+
+/* Các thẻ hoạt động */
+.content-section { padding: 80px 5%; }
+.title { 
+    text-align: center; 
+    margin-bottom: 50px; 
+    font-size: 2.8rem; 
+    color: #38bdf8;
+}
+
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+}
+
+.card {
+    background: #1e293b; 
+    padding: 40px; 
+    border-radius: 20px;
+    border: 1px solid #334155; 
+    transition: 0.4s ease;
+    text-align: center;
+}
+
+.card:hover { 
+    transform: translateY(-10px); 
+    border-color: #38bdf8; 
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.3); 
+}
+
+/* Footer & Liên hệ */
+.main-footer {
+    background: #0f172a;
+    padding: 60px 5% 20px;
+    border-top: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.contact-detail {
+    margin-top: 20px;
+}
+
+.contact-detail {
+    margin-top: 20px;
+}
+
+.contact-detail p {
+    font-size: 0.9rem;
+    color: #cbd5e1 !important; /* Màu chữ sáng hơn chút */
+    margin-bottom: 8px !important;
+    display: flex;
+    align-items: center;
+}
+
+.contact-detail strong {
+    color: #38bdf8; /* Làm nổi bật tiêu đề Hotline/Email */
+    margin-right: 10px;
+    margin-left: 5px;
+}
+.card-link { text-decoration: none; color: inherit; display: block; }
+/* CSS cho khung chứa video */
+.video-container {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden; /* Để bo tròn các góc của video */
+    background: #000;
+    margin-bottom: 15px;
+}
+
+.video-container video {
+    width: 100%;
+    display: block; /* Loại bỏ khoảng trắng thừa dưới video */
+}
+.video-container {
+    width: 100%;
+    /* Tỉ lệ 56.25% là chuẩn 16:9 cho video nằm ngang */
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Giúp video lấp đầy khung mà không bị đen 2 bên */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Giúp video lấp đầy khung mà không bị đen 2 bên */
+}
+
+        /* Thầy thêm CSS cho nút nhạc ở đây để em không cần sửa file style.css */
+        .music-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px; /* Thầy để bên trái để không đè lên footer */
+            z-index: 9999;
+        }
+        .music-control {
+            background: #38bdf8;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .music-control:hover { background: #0ea5e9; }
+        

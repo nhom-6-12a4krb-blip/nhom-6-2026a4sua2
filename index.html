@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỷ Niệm 26/3 - Lớp 12A4 Rực Rỡ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <canvas id="fireworks"></canvas>
+
+    <header>
+        <nav>
+            <div class="logo">12A4<span>.PRO</span></div>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#activities">Sự kiện</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge">Sức trẻ 26/03</span>
+                <h1>TUỔI TRẺ THẾ HỆ MỚI</h1>
+                <p>Cùng nhau tạo nên những kỷ niệm không bao giờ quên.</p>
+                
+                <div id="countdown">
+                    <div class="time-box"><span id="days">00</span><p>Ngày</p></div>
+                    <div class="time-box"><span id="hours">00</span><p>Giờ</p></div>
+                    <div class="time-box"><span id="minutes">00</span><p>Phút</p></div>
+                    <div class="time-box"><span id="seconds">00</span><p>Giây</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="content-section">
+            <h2 class="title">Hoạt Động Lớp Mình</h2>
+            <div class="grid">
+                <a href="van-nghe.html" class="card-link">
+                    <div class="card"><h3>Văn Nghệ</h3><p>Cháy hết mình trên sân khấu.</p></div>
+                </a>
+                <a href="hoi-thao.html" class="card-link">
+                    <div class="card"><h3>Hội Thao</h3><p>Đoàn kết là sức mạnh.</p></div>
+                </a>
+                <a href="trai-he.html" class="card-link">
+                    <div class="card"><h3>Trại Hè</h3><p>Gắn kết tình bạn thân thiết.</p></div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div class="music-container">
+        <button id="music-btn" class="music-control">
+            <span id="music-icon">🎵</span> <span id="music-text">Nghe nhạc lớp mình</span>
+        </button>
+        <audio id="bg-music" loop>
+            <source src="nhac.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="footer-info">
+        <h2 class="logo">12A4<span>.PRO</span></h2>
+        <p>Đoàn kết là sức mạnh - Tự tin là chiến thắng.</p>
+        <div class="contact-detail">
+            <p>📞 <strong>Hotline:</strong> 0966.657.409</p>
+            <p>✉️ <strong>Email:</strong> lop12a4@minhphong.edu.vn</p>
+            <p>📍 <strong>Địa điểm:</strong> Phòng 17 - Dãy nhà 3 lầu</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // 1. SCRIPT ĐIỀU KHIỂN NHẠC (Quan trọng nhất)
+        const musicBtn = document.getElementById('music-btn');
+        const bgMusic = document.getElementById('bg-music');
+        const musicIcon = document.getElementById('music-icon');
+        const musicText = document.getElementById('music-text');
+
+        musicBtn.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicIcon.innerText = "⏸️";
+                musicText.innerText = "Đang phát...";
+            } else {
+                bgMusic.pause();
+                musicIcon.innerText = "🎵";
+                musicText.innerText = "Nghe nhạc lớp mình";
+            }
+        });
+
+        // 2. JS ĐẾM NGƯỢC
+        const countDownDate = new Date("March 26, 2026 00:00:00").getTime();
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            if(distance > 0 && Math.random() > 0.9) {
+                confetti({ particleCount: 2, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#38bdf8', '#ffffff'] });
+                confetti({ particleCount: 2, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#38bdf8', '#ffffff'] });
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
